@@ -12,22 +12,23 @@ public class MyJob implements SimpleJob {
 
     @Override
     public void execute(ShardingContext context) {
+        System.out.println("开始执行任务。。。。。"+
+                context.getTaskId()+ "  ;  " + context.getJobName() + "  ;  " + context.getJobParameter() + "  ;  " +
+                context.getShardingParameter()+ "  ;  "+ context.getShardingItem());
+        System.out.println(Thread.currentThread().getName() + "============" + "do something by sharding item " + context.getShardingItem() + " ; " + context.getShardingParameter());
         switch (context.getShardingItem()) {
             case 0:
                 // do something by sharding item 0
-                System.out.println("o something by sharding item 0");
                 break;
             case 1:
                 // do something by sharding item 1
-                System.out.println("o something by sharding item 1");
                 break;
             case 2:
                 // do something by sharding item 2
-                System.out.println("o something by sharding item 2");
                 break;
             // case n: ...
+
         }
 
     }
-
-    }
+}
