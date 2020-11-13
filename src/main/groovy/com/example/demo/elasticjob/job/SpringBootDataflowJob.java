@@ -1,8 +1,7 @@
-package com.example.demo.elasticjob;
+package com.example.demo.elasticjob.job;
 
 import com.example.demo.elasticjob.model.Foo;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
 import org.apache.shardingsphere.elasticjob.dataflow.job.DataflowJob;
 import org.springframework.stereotype.Component;

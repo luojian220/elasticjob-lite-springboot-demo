@@ -1,5 +1,6 @@
 package com.example.demo.elasticjob;
 
+import com.example.demo.elasticjob.job.MyJob;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.ScheduleJobBootstrap;
 import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;

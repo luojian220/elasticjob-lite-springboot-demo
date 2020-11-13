@@ -2,25 +2,37 @@ elasticjob:
   regCenter:
     serverLists: localhost:2181
     namespace: elasticjob-lite-springboot
+  tracing:
+    type: RDB
   jobs:
     dataflowJob:
-      elasticJobClass: com.example.demo.elasticjob.SpringBootDataflowJob
+      elasticJobClass: com.example.demo.elasticjob.job.SpringBootDataflowJob
       cron: 0/30 * * * * ?
       shardingTotalCount: 3
       shardingItemParameters: 0=Beijing00,1=Shanghai11,2=Guangzhou22
       overwrite: true
+      jobListenerTypes:
+        - mySimpleJobListener
+        - myDistributeOnceJobListener
+
 #    scriptJob:
 #      elasticJobType: SCRIPT
 #      cron: 0/10 * * * * ?
 #      shardingTotalCount: 3
 #      props:
 #        script.command.line: "echo SCRIPT Job: "
+#spring:
+#  datasource:
+#    url: jdbc:mysql://10.88.26.61:8066/db_einvoice_platform?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: user_einvoice
+#    password: user_einvoice
+#    type: com.zaxxer.hikari.HikariDataSource
 spring:
   datasource:
-    url: jdbc:mysql://10.88.26.61:8066/db_einvoice_platform?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
-    driver-class-name: com.mysql.jdbc.Driver
-    username: user_einvoice
-    password: user_einvoice
-    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:job_event_storage
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
 server:
   port: 8089
