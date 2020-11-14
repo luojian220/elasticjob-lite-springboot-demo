@@ -1,6 +1,6 @@
 package com.example.demo.elasticjob;
 
-import com.example.demo.elasticjob.job.MyJob;
+import com.example.demo.elasticjob.job.MySimpleJob;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.ScheduleJobBootstrap;
 import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
@@ -14,7 +14,7 @@ import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCente
  */
 public class MyJobDemo {
     /*public static void main(String[] args) {
-        new ScheduleJobBootstrap(createRegistryCenter(), new MyJob(), createJobConfiguration()).schedule();
+        new ScheduleJobBootstrap(createRegistryCenter(), new MySimpleJob(), createJobConfiguration()).schedule();
     }
     private static CoordinatorRegistryCenter createRegistryCenter() {
         CoordinatorRegistryCenter regCenter = new ZookeeperRegistryCenter(new ZookeeperConfiguration("127.0.0.1:2181", "my-job"));
@@ -24,7 +24,7 @@ public class MyJobDemo {
 
     public static void main(String[] args) {
         // 调度基于 class 类型的作业
-        new ScheduleJobBootstrap(createRegistryCenter(), new MyJob(), createJobConfiguration()).schedule();
+        new ScheduleJobBootstrap(createRegistryCenter(), new MySimpleJob(), createJobConfiguration()).schedule();
         // 调度基于 type 类型的作业
 //        new ScheduleJobBootstrap(createRegistryCenter(), "MY_TYPE", createJobConfiguration()).schedule();
     }

@@ -1,6 +1,6 @@
 package com.example.demo.elasticjob;
 
-import com.example.demo.elasticjob.job.MyJob;
+import com.example.demo.elasticjob.job.MySimpleJob;
 import com.example.demo.elasticjob.listener.MyJobListener;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.ScheduleJobBootstrap;
@@ -17,7 +17,7 @@ public class JobMain{
 
     public static void main(String[] args) {
         MyJobListener myJobListener = new MyJobListener();
-        new ScheduleJobBootstrap(createRegistryCenter(), new MyJob(), createJobConfiguration()).schedule();
+        new ScheduleJobBootstrap(createRegistryCenter(), new MySimpleJob(), createJobConfiguration()).schedule();
     }
 
     private static CoordinatorRegistryCenter createRegistryCenter() {

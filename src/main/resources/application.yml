@@ -14,13 +14,19 @@ elasticjob:
       jobListenerTypes:
         - mySimpleJobListener
         - myDistributeOnceJobListener
+    mySimpleJob:
+      elasticJobClass: com.example.demo.elasticjob.job.MySimpleJob
+      cron: 0/15 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=租户1,1=租户2,2=租户3
+      overwrite: true
 
-#    scriptJob:
-#      elasticJobType: SCRIPT
-#      cron: 0/10 * * * * ?
-#      shardingTotalCount: 3
-#      props:
-#        script.command.line: "echo SCRIPT Job: "
+    scriptJob:
+      elasticJobType: SCRIPT
+      cron: 0/10 * * * * ?
+      shardingTotalCount: 3
+      props:
+        script.command.line: "echo SCRIPT Job: "
 #spring:
 #  datasource:
 #    url: jdbc:mysql://10.88.26.61:8066/db_einvoice_platform?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
